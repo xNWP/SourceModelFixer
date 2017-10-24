@@ -43,7 +43,8 @@
                  HorizontalScrollBarVisibility="Auto"
                  Name="Console"
                  Grid.Row="1"
-                 Margin="4,0,4,32" Foreground="#FFF5E9E9">
+                 Margin="4,0,4,32" Foreground="#FFF5E9E9"
+                 IsReadOnly="True">
             <TextBox.Background>
                 <SolidColorBrush Color="#19FFFFFF"/>
             </TextBox.Background>

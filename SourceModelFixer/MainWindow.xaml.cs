@@ -91,6 +91,10 @@ namespace SourceModelFixer
             {
                 System.Windows.MessageBox.Show("Error: please select a directory containing .vtx and .dx90.vtx files.");
             }
+            if (FileListGlob.Count == 0)
+            {
+                System.Windows.MessageBox.Show("No corrupted models found !", "No Bad Models", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
         }
 
         private void GitHub_MouseUp(object sender, MouseButtonEventArgs e)
@@ -105,6 +109,11 @@ namespace SourceModelFixer
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            if(FileListGlob.Count == 0)
+            {
+                System.Windows.MessageBox.Show("Please select a directory and click Get Files first.", "No Files Listed", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                return;
+            }
             if(System.Windows.MessageBox.Show("Are you sure you want to continue? " +
                 "This will delete all files with a .vtx extension that also have a .dx90.vtx extension.",
                 "Delete .vtx",
@@ -115,7 +124,7 @@ namespace SourceModelFixer
                     foreach (string file in FileListGlob)
                         File.Delete(file);
 
-                    System.Windows.MessageBox.Show("Successfully Deleted "+ FileListGlob.Count().ToString() + " files!" );
+                    System.Windows.MessageBox.Show("Successfully Deleted "+ FileListGlob.Count().ToString() + " files!", "Success !", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 } catch (Exception exx)
                 {
                     System.Windows.MessageBox.Show("Error deleting files: " + exx.ToString());
@@ -123,6 +132,6 @@ namespace SourceModelFixer
             }
         }
 
-        private List<string> FileListGlob;
+        private List<string> FileListGlob = new List<string>();
     }
 }
