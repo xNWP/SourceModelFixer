@@ -1,0 +1,57 @@
+﻿<Window x:Class="SourceModelFixer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SourceModelFixer"
+        mc:Ignorable="d"
+        Title="Source Model Fixer - v1.0" Height="350" Width="525"
+        MinWidth="525"
+        MinHeight="350" Icon="icon.ico">
+    <Grid Background="#FF272529">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="145"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Row="0">
+            <Label HorizontalAlignment="Center" Foreground="#FFF5E9E9"
+                   FontWeight="Bold" FontSize="14">Source Model Fixer by xNWP</Label>
+            <Label HorizontalAlignment="Center" Foreground="#FF467AD4"
+                     Margin="0,-10,0,0" MouseUp="GitHub_MouseUp" Cursor="Hand" >http://github.com/xNWP</Label>
+            <Label HorizontalAlignment="Center" Foreground="#FF467AD4"
+                     Margin="0,-10,0,5" MouseUp="Twitter_MouseUp" Cursor="Hand">http://twitter.com/ThatNWP</Label>
+            <Label Foreground="#FFF5E9E9">Select directory to scan for .vtx + .dx90.vtx files</Label>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,0,0,0">
+                <TextBox Width="400"
+                         Name="DirectoryEntry" Background="#3FFFFFFF" Foreground="#FFF5E9E9"/>
+                <Button Width="80"
+                        Height="20"
+                        HorizontalAlignment="Right"
+                        Margin="10,0,0,0"
+                        Click="Browse_Click" Background="#FF4E5763" Foreground="#FFF5E9E9">Browse</Button>
+            </StackPanel>
+            <Button Click="GetFiles_Click"
+                    HorizontalAlignment="Left"
+                    Width="65"
+                    Margin="1,4,0,0"
+                    Background="#FF4E5763" Foreground="#FFF5E9E9">Get Files</Button>
+        </StackPanel>
+        <TextBox VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Auto"
+                 Name="Console"
+                 Grid.Row="1"
+                 Margin="4,0,4,32" Foreground="#FFF5E9E9">
+            <TextBox.Background>
+                <SolidColorBrush Color="#19FFFFFF"/>
+            </TextBox.Background>
+        </TextBox>
+        <Button Grid.Row="1" VerticalAlignment="Bottom"
+                Margin="0,0,10,5" HorizontalAlignment="Right"
+                Width="90"
+                Height="22"
+                Background="#FF4E5763" Foreground="#FFF5E9E9" Click="Delete_Click">Delete .vtx</Button>
+    </Grid>
+</Window>
