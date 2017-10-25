@@ -51,8 +51,8 @@ namespace SourceModelFixer
             {
                 string[] FileName = File.Split('.'); // seperate into just file name + extensions
 
-                if (FileName.Length == 3) // 3 entries, therefore it's a .dx90.vtx file
-                    if (tmp.Contains(FileName[0] + ".vtx")) // there is a .dx90.vtx and a .vtx
+                if (FileName.Length == 3) // 3 entries, therefore it's a .dx90/80.vtx file
+                    if (tmp.Contains(FileName[0] + ".vtx")) // there is a .dx90/80.vtx and a .vtx
                         FileList.Add(FileName[0] + ".vtx");
             }
 
